@@ -8,9 +8,9 @@ register.onclick = function register() {
   const password = document.getElementById("password").value; 
   const mail = document.getElementById("gmail").value;
   var myHeaders = new Headers();
-
+  var raw ={};
   if(user != null && password !=null){
-    var raw = JSON.stringify({
+    raw = JSON.stringify({
       "username": username,
       "password": password,
       "email": mail
