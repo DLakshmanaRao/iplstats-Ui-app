@@ -4,16 +4,15 @@ let message = document.getElementById("message");
 let message2 = document.getElementById("message2");
 message.style.visibility = 'hidden';
 register.onclick = function register() {
-  console.log("Login")
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  const mail = document.getElementById("gmail").value;
+  const email = document.getElementById("email").value;
   var myHeaders = new Headers();
-  if (user != null && password != null) {
+  if (username != null && password != null) {
     raw = JSON.stringify({
       "username": username,
       "password": password,
-      "email": mail + 'gmail.com'
+      "email": mail + '@gmail.com'
     });
 
     myHeaders.append("Content-Type", "application/json");
