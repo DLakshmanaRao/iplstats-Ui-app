@@ -1,18 +1,17 @@
 
 const register = document.getElementById("register");
 let message = document.getElementById("message");
-let message2 = document.getElementById("message2");
 message.style.visibility = 'hidden';
 register.onclick = function register() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const email = document.getElementById("email").value;
-  var myHeaders = new Headers();
   if (username != null && password != null) {
+    var myHeaders = new Headers();
     raw = JSON.stringify({
       "username": username,
       "password": password,
-      "email": mail + '@gmail.com'
+      "email": email
     });
 
     myHeaders.append("Content-Type", "application/json");
@@ -27,9 +26,9 @@ register.onclick = function register() {
       .then(response => response.json())
       .then(result => {
         console.log(result);
+        const message2 = document.getElementById("message2");
         message2.innerHTML = `User created with username : ${username}`;
-      })
-      .catch(error => console.log('error', error));
+      }).catch(error => console.log('error', error));
   } else {
     message.style.visibility = 'visible';
     message.style.color = 'red';
