@@ -1,7 +1,7 @@
 var jwt = localStorage.getItem("token");
 if (jwt != null) {
   window.location.href = "index.html";
-}
+} 
 
 const login = document.getElementById("login");
 login.onclick = function login() {
@@ -21,7 +21,7 @@ login.onclick = function login() {
     body: raw
   };
 
-  fetch("https://iplstatsapp.onrender.com/iplstats/api/auth/login", requestOptions)
+  fetch("http://localhost:8094/iplstats/api/auth/login", requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result);

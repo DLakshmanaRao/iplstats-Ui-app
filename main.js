@@ -10,7 +10,7 @@ const roleAmountChart = document.querySelector("#roleAmountChart");
 const playerData = document.querySelector("#playerData");
 const user = document.getElementById("user");
 const role = document.getElementById("role");
-var logout = document.getElementById("logout");
+var logout = document.getElementById("logout"); 
 
 function parseJwt(token) {
     var base64Url = token.split('.')[1];

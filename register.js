@@ -5,7 +5,7 @@ message.style.visibility = 'hidden';
 register.onclick = function register() {
   console.log("Login")
   const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+  const password = document.getElementById("password").value; 
   const mail = document.getElementById("gmail").value;
   var myHeaders = new Headers();
 

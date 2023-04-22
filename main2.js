@@ -3,7 +3,7 @@ if (jwt == null) {
   window.location.href = "login.html";
 }
 
-let teamSelectIds = document.querySelector("#teamSelectIds");
+let teamSelectIds = document.querySelector("#teamSelectIds"); 
 let teamRoleDetails = document.getElementById("teamRoleDetails");
 let teamCountryDetails = document.getElementById("teamCountryDetails");
 const selectRole = document.getElementById("selectRole");
