@@ -23,7 +23,7 @@ function parseJwt(token) {
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
 
-const baseUrl = "http://localhost:8092/iplstats/api/v1";
+const baseUrl = "https://iplstatsapp.onrender.com/iplstats/api/v1";
 
 google.charts.load('current', { 'packages': ['corechart'] });
 
