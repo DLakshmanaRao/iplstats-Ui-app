@@ -14,20 +14,20 @@
 <body class="text-center">
     <main class="form-signin">
         <form>
-            <div class="input-group mb-3">
+            <div class="form-floating mb-1">
                 <span class="input-group-text" id="basic-addon1">@</span>
-                <input type="text" class="form-control" placeholder="Enter Username" id="Username"
-                    aria-describedby="basic-addon1">
+                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                <label for="floatingInput">Username</label>
             </div>
-            <div class="input-group mb-3">
+            <div class="form-floating mb-1">
                 <span class="input-group-text" id="basic-addon1">Password</span>
-                <input type="text" class="form-control" placeholder="Enter Password" id="password"
-                    aria-describedby="basic-addon2">
+                <input type="text" class="form-control" id="password" placeholder="Enter Password">
+                <label for="floatingInput">Username</label>
             </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter Mail" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2">
-                <span class="input-group-text" id="gmail">@gmail.com</span>
+            <div class="form-floating mb-1">
+                <input type="text" class="form-control" id="password" placeholder="Recipient's username">
+                <label for="floatingInput">Username</label>
+                <span class="input-group-text" >@gmail.com</span>
             </div>
             <h5 id="message" style="height: 5px; color: red;"></h5>
             <button class="w-100 btn btn-lg btn-primary mt-3" type="button" onclick="register()"
