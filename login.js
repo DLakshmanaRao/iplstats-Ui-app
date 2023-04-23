@@ -21,7 +21,7 @@ login.onclick = function login() {
     body: raw
   };
 
-  fetch("http://localhost:8094/iplstats/api/auth/login", requestOptions)
+  fetch("https://iplstatsapp.onrender.com/iplstats/api/auth/login", requestOptions)
     .then(response => response.json())
     .then(result => {
       console.log(result);
