@@ -1,7 +1,7 @@
 
 const register = document.getElementById("register");
 let message = document.getElementById("message");
-message.style.visibility = 'hidden';
+message.innerHTML.style.visibility = 'hidden';
 const message2 = document.getElementById("message2")
 register.onclick = function register() {
   const username = document.getElementById("username").value;
@@ -26,11 +26,12 @@ register.onclick = function register() {
     fetch("https://iplstatsapp.onrender.com/iplstats/api/auth/register", requestOptions)
       .then(response => console.log(response))
       .catch(error => console.log('error', error));
-    message2.innerHTML = `User created with user name: ${username}`;
+      message2.innerHTML = `User created with user name: ${username}`;
   } else {
     message.style.visibility = 'visible';
     message.style.color = 'red';
     message.innerHTML = "Entered credentials are not valid";
+    message2.innerHTML.style.visibility = 'hidden';
   }
 
 }
