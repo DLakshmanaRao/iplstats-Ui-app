@@ -26,7 +26,7 @@ if (jwt == null) {
     window.location.href = "login.html";
 }
 
-if(parseJwt(jwt).role[0] != "ADMIN"){
+if(parseJwt(jwt).role[0] == "USER"){
     admin.style.visibility = "hidden";
 }
 
