@@ -9,7 +9,7 @@ const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
 const admin = document.getElementById("admin");
 
-admin.style.visibility = 'hidden';
+admin.style.visibility = "hidden";
 
 
 function parseJwt(token) {
