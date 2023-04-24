@@ -11,6 +11,7 @@ const playerData = document.querySelector("#playerData");
 const user = document.getElementById("user");
 const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
+let admin = document.getElementById("admin");
 
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
@@ -146,6 +147,17 @@ function getHeaders(method) {
     return requestOptions;
 }
 
+function adminVisible(admin){
+    if(parseJwt(jwt).role[0] === ADMIN){
+        admin.style.visibility = 'visible';
+
+        admin.addEventListener('click',function(){
+            admin.location.href = "register.html";
+        });
+    }else{
+        admin.style.visibility = 'hidden';
+    }
+}
 
 
 logout.onclick = function () {
@@ -156,6 +168,7 @@ logout.onclick = function () {
     }
 }
 
+adminVisible(admin);
 
 
 
