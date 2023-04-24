@@ -22,16 +22,6 @@ function parseJwt(token) {
 var jwt = localStorage.getItem("token");
 if (jwt == null) {
     window.location.href = "login.html";
-}else{
-    if(parseJwt(jwt).role[0] === ADMIN){
-        admin.style.visibility = 'visible';
-
-        admin.addEventListener('click',function(){
-            admin.location.href = "register.html";
-        });
-    }else{
-        admin.style.visibility = 'hidden';
-    }
 }
 
 
@@ -161,6 +151,18 @@ function getHeaders(method) {
     return requestOptions;
 }
 
+function adminVisible(){
+    if(parseJwt(jwt).role[0] == ADMIN){
+        admin.addEventListener('click',function(){
+            admin.location.href = "register.html";
+        });
+    }else if(jwt == null){
+        admin.style.visibility = 'hidden';
+    }else{
+        admin.style.visibility = 'hidden';
+    }
+}
+
 logout.onclick = function () {
     if (jwt != null) {
         localStorage.removeItem('token');
@@ -168,4 +170,5 @@ logout.onclick = function () {
         window.location.href = "login.html";
     }
 }
+adminVisible();
 
