@@ -9,7 +9,7 @@ const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
 const admin = document.getElementById("admin");
 
-admin.style.visibility = "hidden";
+
 
 
 function parseJwt(token) {
@@ -26,6 +26,14 @@ if (jwt == null) {
     window.location.href = "login.html";
 }
 
+function adminVisible(){
+    if(parseJwt(jwt).role[0] == "ADMIN"){
+        admin.style.display = inline;
+    }else if(parseJwt(jwt).role[0] == "USER"){
+        admin.style.visibility = none;
+    }
+}
+adminVisible();
 
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
@@ -153,15 +161,7 @@ function getHeaders(method) {
     return requestOptions;
 }
 
-function adminVisible(){
-    if(parseJwt(jwt).role[0] == "ADMIN"){
-        admin.style.visibility = "visible";
-    }else if(jwt == null){
-        admin.style.display = "none";
-    }else if(parseJwt(jwt).role[0] == "USER"){
-        admin.style.visibility = "none";
-    }
-}
+
 
 logout.onclick = function () {
     if (jwt != null) {
@@ -170,5 +170,5 @@ logout.onclick = function () {
         window.location.href = "login.html";
     }
 }
-adminVisible();
+
 
