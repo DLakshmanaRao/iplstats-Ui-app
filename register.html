@@ -12,26 +12,6 @@
 </head>
 
 <body class="text-center">
-    <nav class="navbar navbar-expand-lg" id="navbarR" style="background-color: palegreen; color: black;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">IPL-STATS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="#index.html">Home</a>
-                    <h5 style="margin-left: 370px; color: blue;">User Name :</h5>
-                    <h5 class="user" id="user" style="margin-left: 10px; color:black;"></h5>
-                    <h5 class="role" id="roleuser" style="margin-left: 15px; color:black;"></h5>
-                </div>
-                <button class="btn btn-outline-danger position-absolute start-80 end-0" style="margin-right: 10px;"
-                    id="logout">Logout</button>
-            </div>
-        </div>
-        </div>
-    </nav>
     <main class="form-signin">
         <form>
             <div class="form-floating mb-1">
@@ -46,13 +26,7 @@
                 <input type="text" class="form-control" id="email" placeholder="Recipient's username">
                 <label for="floatingInput">Gmail</label>
             </div>
-            <div class="form-floating mb-1">
-                <input type="text" class="form-control" id="role" placeholder="Enter role">
-                <label for="floatingInput">Role</label>
-            </div>
-            <div>
-                <h5 id="message" style="height: 5px; color: red;"></h5>
-            </div>
+            <div><h5 id="message" style="height: 5px; color: red;"></h5></div>
             <button class="w-100 btn btn-lg btn-primary mt-3" type="button" onclick="register()"
                 id="register">Submit</button>
         </form>

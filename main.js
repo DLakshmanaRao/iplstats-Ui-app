@@ -1,7 +1,3 @@
-var jwt = localStorage.getItem("token");
-if (jwt == null) {
-    window.location.href = "login.html";
-}
 const teamRoleStatChart = document.querySelector("#teamRoleStatChart");
 const teamRoleDetails = document.querySelector("#teamRoleDetails");
 const teamSelectId = document.querySelector("#teamSelectId");
@@ -13,6 +9,7 @@ const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
 let admin = document.getElementById("admin");
 
+
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -21,6 +18,23 @@ function parseJwt(token) {
     }).join(''));
     return JSON.parse(jsonPayload);
 }
+
+var jwt = localStorage.getItem("token");
+if (jwt == null) {
+    window.location.href = "login.html";
+}else{
+    if(parseJwt(jwt).role[0] === ADMIN){
+        admin.style.visibility = 'visible';
+
+        admin.addEventListener('click',function(){
+            admin.location.href = "register.html";
+        });
+    }else{
+        admin.style.visibility = 'hidden';
+    }
+}
+
+
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
 
@@ -147,19 +161,6 @@ function getHeaders(method) {
     return requestOptions;
 }
 
-function adminVisible(admin){
-    if(parseJwt(jwt).role[0] === ADMIN){
-        admin.style.visibility = 'visible';
-
-        admin.addEventListener('click',function(){
-            admin.location.href = "register.html";
-        });
-    }else{
-        admin.style.visibility = 'hidden';
-    }
-}
-
-
 logout.onclick = function () {
     if (jwt != null) {
         localStorage.removeItem('token');
@@ -167,8 +168,4 @@ logout.onclick = function () {
         window.location.href = "login.html";
     }
 }
-
-adminVisible(admin);
-
-
 
