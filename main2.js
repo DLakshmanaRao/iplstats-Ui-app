@@ -163,7 +163,7 @@ function showPlayerOfRoleDetails() {
 
 function viewPlayerTRoleDetails(players) {
   if(players != null){
-    let str = "Please select role name to see player information";
+    let str = "There is no player data on given role in a selected team";
   console.log(players);
   if (players.length > 0) {
     str = '<table class="table table-striped">';
@@ -230,7 +230,7 @@ function showPlayerOfCountryDetails() {
 function viewPlayerCountryDetails(players) {
 
   if(players != null){
-    let str = "Please select country name to see player information";
+    let str = "There is no player data on given country name in selected team";
     console.log(players);
     if (players.length > 0) {
       str = '<table class="table table-striped">';
