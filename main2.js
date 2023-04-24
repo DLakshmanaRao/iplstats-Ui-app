@@ -162,7 +162,8 @@ function showPlayerOfRoleDetails() {
 }
 
 function viewPlayerTRoleDetails(players) {
-  let str = "Please select role name to see player information";
+  if(players != null){
+    let str = "Please select role name to see player information";
   console.log(players);
   if (players.length > 0) {
     str = '<table class="table table-striped">';
@@ -181,6 +182,10 @@ function viewPlayerTRoleDetails(players) {
     str += '</tbody></table>';
   }
   playerRoleDetailsTable.innerHTML = str;
+  } else{
+    playerRoleDetailsTable.innerHTML = "There is no player data on given role in a selected team"
+  }
+  
 
 }
 
@@ -223,25 +228,31 @@ function showPlayerOfCountryDetails() {
 }
 
 function viewPlayerCountryDetails(players) {
-  let str = "Please select country name to see player information";
-  console.log(players);
-  if (players.length > 0) {
-    str = '<table class="table table-striped">';
-    str += '<thead><tr><th>Name</th><th>Role</th><th>Country</th><th>Amount</th></tr></thead>';
-    str += '<tbody>';
-    players.forEach(p => {
-      str += `<tr>
-                              <td>${p.name}</td>
-                              <td>${p.role}</td>
-                              <td>${p.country}</td>
-                              <td>${p.amount}</td>
-                         </tr>
-                       ` ;
-    });
 
-    str += '</tbody></table>';
+  if(players != null){
+    let str = "Please select country name to see player information";
+    console.log(players);
+    if (players.length > 0) {
+      str = '<table class="table table-striped">';
+      str += '<thead><tr><th>Name</th><th>Role</th><th>Country</th><th>Amount</th></tr></thead>';
+      str += '<tbody>';
+      players.forEach(p => {
+        str += `<tr>
+                                <td>${p.name}</td>
+                                <td>${p.role}</td>
+                                <td>${p.country}</td>
+                                <td>${p.amount}</td>
+                           </tr>
+                         ` ;
+      });
+  
+      str += '</tbody></table>';
+    }
+    playerCountryDetailsTable.innerHTML = str;
   }
-  playerCountryDetailsTable.innerHTML = str;
+  else {
+    playerCountryDetailsTable.innerHTML = "There is no player data on given country name in selected team"
+  }
 
 }
 
