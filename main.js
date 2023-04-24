@@ -7,9 +7,6 @@ const playerData = document.querySelector("#playerData");
 const user = document.getElementById("user");
 const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
-const admin = document.getElementById("admin");
-
-
 
 
 function parseJwt(token) {
@@ -25,11 +22,6 @@ var jwt = localStorage.getItem("token");
 if (jwt == null) {
     window.location.href = "login.html";
 }
-
-if(parseJwt(jwt).role[0] == "USER"){
-    admin.style.visibility = "hidden";
-}
-
 
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
