@@ -152,14 +152,14 @@ function getHeaders(method) {
 }
 
 function adminVisible(){
-    if(parseJwt(jwt).role[0] == ADMIN){
-        admin.addEventListener('click',function(){
-            admin.location.href = "register.html";
-        });
+    if(parseJwt(jwt).role[0] == "ADMIN"){
+            admin.onclick = function adminReg(){
+                admin.location.href = "register.html";
+            };
     }else if(jwt == null){
-        admin.style.visibility = 'hidden';
+        admin.style.display = "none";
     }else{
-        admin.style.visibility = 'hidden';
+        admin.style.visibility = 'none';
     }
 }
 
