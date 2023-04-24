@@ -26,14 +26,10 @@ if (jwt == null) {
     window.location.href = "login.html";
 }
 
-function adminVisible(){
-    if(parseJwt(jwt).role[0] == "ADMIN"){
-        admin.style.display = inline;
-    }else if(parseJwt(jwt).role[0] == "USER"){
-        admin.style.visibility = none;
-    }
+if(parseJwt(jwt).role[0] != "ADMIN"){
+    admin.style.visibility = "hidden";
 }
-adminVisible();
+
 
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
