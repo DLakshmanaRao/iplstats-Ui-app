@@ -7,7 +7,9 @@ const playerData = document.querySelector("#playerData");
 const user = document.getElementById("user");
 const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
-let admin = document.getElementById("admin");
+const admin = document.getElementById("admin");
+
+admin.style.visibility = 'hidden';
 
 
 function parseJwt(token) {
@@ -153,13 +155,11 @@ function getHeaders(method) {
 
 function adminVisible(){
     if(parseJwt(jwt).role[0] == "ADMIN"){
-            admin.onclick = function adminReg(){
-                admin.location.href = "register.html";
-            };
+        admin.style.visibility = "visible";
     }else if(jwt == null){
         admin.style.display = "none";
-    }else{
-        admin.style.visibility = 'none';
+    }else if(parseJwt(jwt).role[0] == "USER"){
+        admin.style.visibility = "none";
     }
 }
 
