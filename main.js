@@ -7,7 +7,8 @@ const playerData = document.querySelector("#playerData");
 const user = document.getElementById("user");
 const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
-
+const admin = document.getElementById("admin");
+admin.innerHTML = "xx";
 
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
@@ -25,6 +26,10 @@ if (jwt == null) {
 
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
+
+if(role == "USER"){
+    admin
+}
 
 const baseUrl = "https://iplstatsapp.onrender.com/iplstats/api/v1";
 
