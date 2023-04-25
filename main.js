@@ -26,7 +26,7 @@ if (jwt == null) {
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
 
-if(role == "USER"){
+if(role.innerHTML == 'USER'){
     admin.innerHTML = "";
 }
 
