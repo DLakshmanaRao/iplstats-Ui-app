@@ -9,6 +9,7 @@ const role = document.getElementById("role");
 var logout = document.getElementById("logout"); 
 const admin = document.getElementById("admin");
 
+admin.innerHTML="";
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -26,9 +27,9 @@ if (jwt == null) {
 user.innerHTML = parseJwt(jwt).sub;
 role.innerHTML = `(${parseJwt(jwt).roles[0]})`;
 
-if(role.innerHTML == 'USER'){
-    admin.innerHTML = "";
-}
+// if(role.innerHTML == 'USER'){
+//     admin.innerHTML = "";
+// }
 
 const baseUrl = "https://iplstatsapp.onrender.com/iplstats/api/v1";
 
